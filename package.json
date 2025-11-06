@@ -1,0 +1,38 @@
+{
+  "name": "youtube-qa-automation",
+  "version": "1.0.0",
+  "description": "E2E automation testing for YouTube using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:e2e": "playwright test --headed",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:chrome": "playwright test --project=chromium",
+    "test:android": "playwright test --project=android-samsung",
+    "test:ios": "playwright test --project=ios-iphone",
+    "test:mobile": "playwright test --project=android-samsung --project=ios-iphone",
+    "test:all": "playwright test --project=chromium --project=android-samsung --project=ios-iphone",
+    "report": "playwright show-report",
+    "clean": "npm run clean:reports && npm run clean:screenshots",
+    "clean:reports": "rm -rf test-results playwright-report",
+    "clean:screenshots": "find screenshots -type f ! -name '.gitkeep' -delete",
+    "clean:all": "npm run clean && rm -rf node_modules",
+    "reinstall": "npm run clean:all && npm install",
+    "postinstall": "playwright install chromium webkit"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "automation",
+    "qa",
+    "youtube"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.10.0"
+  }
+}
